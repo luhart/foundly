@@ -1,0 +1,10 @@
+.container {
+    padding: 0 0;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mynav {
+    display: flex;
+    padding: 0 1rem;
+}
