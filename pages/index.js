@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 
-import { Button } from 'react-bootstrap'
+import { Button, Navbar } from 'react-bootstrap'
 import Typist from 'react-typist'
 
 
@@ -14,10 +14,20 @@ export default function Home() {
         <title>{siteTitle}</title>
       </Head>
       <div className="top">
-        <div className="brand">
-        <img src="/logo.png" style={{width:100}}></img>
-        <h1 className="title"><Link href="/" >Foundly</Link></h1>
-        </div>
+        <Navbar className="nav">
+          <Link href="/" passHref>
+              <Navbar.Brand href="/">
+                <img
+                    alt=""
+                    src="/logo.png"
+                    width="50"
+                    height="50"
+                    className="d-inline-block align-top navlogo"
+                />{' '}
+                <h1 className="d-inline-block title">Foundly</h1>
+              </Navbar.Brand>
+          </Link>
+        </Navbar> 
         <div className="description">
           <Typist cursor={{ hideWhenDone: true }}>
             Become your own company.
@@ -39,15 +49,22 @@ export default function Home() {
             <h3>Reduce Liability</h3>
             <p>You don't need to be personally liable for your debts!</p>
           </div>
-          <div className="mainbtn">
-            <Button href="https://www.investopedia.com/terms/l/llc.asp" variant="dark" size="lg">
-              Learn more about LLCs
-            </Button>
-          </div>
+        
         </div>
       </main>
       <div className="try">
-        <h2>Get Started</h2>
+        <div className="tryitem">
+          <h4>Need to learn more about LLCs?🤔</h4>
+          <Button href="https://www.investopedia.com/terms/l/llc.asp" className="trybutton" variant="outline-success" size="lg">
+            Read On 🧐
+          </Button>
+        </div>
+        <div className="tryitem">
+          <h4>Ready to get that company?🚀</h4>
+          <Button component="{Link}" href="/start" className="trybutton" variant="outline-info" size="lg">
+            Start Here
+          </Button>
+        </div>
       </div>
 
       <footer>
