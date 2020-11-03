@@ -136,6 +136,17 @@ code {
   flex-wrap: wrap;
   max-width: 800px;
 }
+.brand {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+
+.brand>img {
+  
+  padding: 7px 14px;
+}
+
 .card {
   margin: 1rem;
   flex-basis: 45%;

@@ -14,7 +14,10 @@ export default function Home() {
         <title>{siteTitle}</title>
       </Head>
       <div className="top">
-        <h1 className="title" style={{ textDecoration: 'none'}}><Link href="/" >Foundly</Link></h1>
+        <div className="brand">
+        <img src="/logo.png" style={{width:100}}></img>
+        <h1 className="title"><Link href="/" >Foundly</Link></h1>
+        </div>
         <div className="description">
           <Typist cursor={{ hideWhenDone: true }}>
             Become your own company.
