@@ -81,7 +81,7 @@ export default function Home() {
       </main>
 
       <footer>
-        <a>email hello@foundly.app to get in touch</a>
+        <a>Email hello@foundly.app to get in touch</a>
       </footer>
 
     </Layout>

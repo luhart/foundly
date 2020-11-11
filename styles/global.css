@@ -6,7 +6,11 @@ html, body {
   line-height: 1.5;
   font-size: 16px;
   height: 100%;
-  background-color: rgb(241, 243, 247);
+  background-color: rgb(250, 251, 254);
+}
+
+body {
+  margin: 0 0 100px;
 }
 
 /*
@@ -79,9 +83,9 @@ body {
  }
 }
 .hero-container {
-  background-color: #fafafa;
+  background-color: #fefafa;
   padding: 3rem 0;
-  border-bottom: 3px solid #94C6EA;
+  border-bottom: 3px solid #D84339;
 }
 .hero {
   display: flex;
@@ -174,8 +178,9 @@ body {
   padding: 1rem;
   margin-top: 1rem;
   margin-right: 1rem;
-  border: 3px solid;
-  border-radius: 5px;
+  border: 2px solid;
+  border-color: rgb(221, 211, 228);
+  border-radius: 10px;
   background-color: rgb(238, 243, 250);
 }
 
@@ -188,9 +193,13 @@ ul, li {
 }
 
 footer {
+  font-size: 20px;
+  position: relative;
+  left: 0;
+  bottom: 0;
   width: 100%;
-  height: 300px;
-  border-top: 3px solid #f5dcdb;
+  height: 450px;
+  border-top: 3px solid #94C6EA;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -203,8 +212,8 @@ footer a {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  padding: 5px;
+  background-color: rgb(252, 242, 242);
+  padding: 20px;
   border-radius: 5px;
 }
 a {
