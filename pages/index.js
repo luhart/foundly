@@ -13,64 +13,52 @@ export default function Home() {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <div className="top">
-        <Navbar className="nav">
-          <Link href="/" passHref>
-              <Navbar.Brand href="/">
-                <img
-                    alt=""
-                    src="/logo.png"
-                    width="50"
-                    height="50"
-                    className="d-inline-block align-top navlogo"
-                />{' '}
-                <h1 className="d-inline-block title">Foundly</h1>
-              </Navbar.Brand>
-          </Link>
-        </Navbar> 
-        <div className="description">
-          <Typist cursor={{ hideWhenDone: true }}>
-            Become your own company.
-          </Typist>
+        <div className="top">
+          <Navbar className="nav justify-content-between">
+            <Link href="/" passHref>
+                <Navbar.Brand href="/">
+                  <img
+                      alt=""
+                      width="200"
+                      src="/title.svg"
+                      className="d-inline-block align-top "
+                  />
+                </Navbar.Brand>
+            </Link>
+            <div className="topButtons mr-sm-2">
+              <Button className="topButtonL" variant="outline">Sign up</Button>
+              <Button className="topButtonR" variant="outline">Login</Button>
+            </div>
+          </Navbar> 
         </div>
-      </div>
-      <main>
-        <h2 className="description blurb">If you're a creator or influencer,<br/> it's in your best interest to become your own company.</h2>
-        <div className="verticalLine"/>
-        <h2 className="description blurb">WHY?!?!</h2>
-        <div className="verticalLine"/>
-        <div className="grid">
-          <div className="card">
-            <h3>Save $ to make $</h3>
-            <p> Writting off expensive equipment purchases will save you thousands.</p>
-          </div>
-          <br/>
-          <div className="card">
-            <h3>Reduce Liability</h3>
-            <p>You don't need to be personally liable for your debts!</p>
-          </div>
-        
-        </div>
-      </main>
-      <div className="try">
-        <div className="tryitem">
-          <h4>Need to learn more about LLCs?🤔</h4>
-          <Button href="https://www.investopedia.com/terms/l/llc.asp" className="trybutton" variant="outline-success" size="lg">
-            Read On 🧐
-          </Button>
-        </div>
-        <div className="tryitem">
-          <h4>Ready to get that company?🚀</h4>
-          <Button component="{Link}" href="/start" className="trybutton" variant="outline-info" size="lg">
-            Start Here
-          </Button>
-        </div>
-      </div>
 
-      <footer>
-        <a>email hello@foundly.app to get in touch</a>
-      </footer>
-      
+      <main>
+        <section className="hero-container">
+          <div className="container">
+            <div className="hero">
+              <div className="hero-body half">
+                <h2 className="hero-title">
+                <Typist cursor={{ hideWhenDone: true }}>
+                  Become your own company.
+                </Typist>
+                </h2>
+                <p className="hero-subtitle">Foundly turns creators and influencers into companies with absolute ease. Writing off expensive purchases will save you thousands. And you won't be personally liable for your debts! No paperwork, no headaches.</p>
+                <br/>
+                <h4 className="hero-subtitle">Ready to get that company?🚀</h4>
+                <Button className="hero-btn" component="{Link}" href="/start" variant="primary" >
+                  Start Here
+                </Button>
+              </div>
+              <div className="hero-photo">
+                <img src="/images/hero.png"/>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer>
+          <a>email hello@foundly.app to get in touch</a>
+        </footer>
+      </main>
     </Layout>
   )
 }

@@ -13,6 +13,7 @@ export default class Start extends React.Component {
   render() {
     return (
       <Layout>
+
         <Head><title>Start your company</title></Head>
       </Layout>
     )

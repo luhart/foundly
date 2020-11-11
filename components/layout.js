@@ -7,17 +7,17 @@ import { Navbar, Button } from 'react-bootstrap'
 
 
 const name = 'Foundly'
-export const siteTitle = 'Be your own company'
+export const siteTitle = 'Become your own company'
 
 
 export default function Layout({ children, home }) {
   return (
     <>
       <Head>
-        <link rel="icon" href="/logo.ico" />
+        <link rel="icon" href="/logo.svg" />
         <meta
           name="description"
-          content="become a company"
+          content="Become your own company"
         />
       </Head>
       {children}
