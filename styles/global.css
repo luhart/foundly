@@ -200,7 +200,7 @@ body {
 
 footer {
   font-size: 20px;
-  margin-top: 10rem;
+  margin-top: 5rem;
   position: relative;
   left: 0;
   bottom: 0;
@@ -221,7 +221,6 @@ footer img {
 footer a {
   position: relative;
   width: 780px;
-  border-left: 3px solid black;
   padding-left: 5px;
 }
 a {
