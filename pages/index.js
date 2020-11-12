@@ -12,6 +12,11 @@ export default function Home() {
     <Layout>
       <Head>
         <title>{siteTitle}</title>
+        <script  dangerouslySetInnerHTML={{ __html: `
+          if (document.cookie && document.cookie.includes('authed')) {
+            window.location.href = "/dashboard"
+          }
+        ` }} />
       </Head>
         <div className="top">
           <Navbar className="nav">
@@ -26,7 +31,7 @@ export default function Home() {
                 </Navbar.Brand>
             </Link>
             <div className="mr-sm-2">
-              <Button className="login-btn" variant="outline">Login</Button>
+              <Button className="login-btn" component="{Link}" href="/login" variant="outline">Login</Button>
             </div>
           </Navbar> 
         </div>
@@ -38,13 +43,13 @@ export default function Home() {
               <div className="hero-body half">
                 <h2 className="hero-title">
                 <Typist cursor={{ hideWhenDone: true }}>
-                  Become your own company.
+                  Become your own <br/>company.
                 </Typist>
                 </h2>
                 <p className="hero-subtitle">Foundly turns creators and influencers into companies with absolute ease. Writing off expensive purchases will save you thousands. And you won't be personally liable for your debts! No paperwork, no headaches.</p>
                 <br/>
                 <h5 className="hero-subtitle">Ready to get that company?🚀</h5>
-                <Button className="hero-btn" component="{Link}" href="/start" variant="outline-primary" >
+                <Button className="hero-btn" component="{Link}" href="/dashboard" variant="outline-primary" >
                   Start Here
                 </Button>
               </div>
