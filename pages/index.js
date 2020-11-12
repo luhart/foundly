@@ -14,19 +14,19 @@ export default function Home() {
         <title>{siteTitle}</title>
       </Head>
         <div className="top">
-          <Navbar className="nav justify-content-between">
+          <Navbar className="nav">
             <Link href="/" passHref>
                 <Navbar.Brand href="/">
                   <img
                       alt=""
                       width="200"
                       src="/title.svg"
-                      className="d-inline-block align-top "
+                      className="d-inline-block align-top logo"
                   />
                 </Navbar.Brand>
             </Link>
-            <div className="topButtons mr-sm-2">
-              <Button className="topButtonR" variant="outline">Login</Button>
+            <div className="mr-sm-2">
+              <Button className="login-btn" variant="outline">Login</Button>
             </div>
           </Navbar> 
         </div>
@@ -43,7 +43,7 @@ export default function Home() {
                 </h2>
                 <p className="hero-subtitle">Foundly turns creators and influencers into companies with absolute ease. Writing off expensive purchases will save you thousands. And you won't be personally liable for your debts! No paperwork, no headaches.</p>
                 <br/>
-                <h4 className="hero-subtitle">Ready to get that company?🚀</h4>
+                <h5 className="hero-subtitle">Ready to get that company?🚀</h5>
                 <Button className="hero-btn" component="{Link}" href="/start" variant="outline-primary" >
                   Start Here
                 </Button>
@@ -55,8 +55,7 @@ export default function Home() {
           </div>
         </section>
         <div className="middle">
-          <h4 className="middle-title">If you are a social media influencer or content creator, <br/>it's probably in your best interest to become a company.</h4>
-          <div className="middle-underline"></div>
+          <div className="middle-container-title"><h4 className="middle-title">If you are an influencer or content creator,<br/>it's in your best interest to become a company.</h4></div>
           <div className="middle-container">
             <div className="blurb">
                 <h3>Save money by deducting:</h3>
@@ -81,7 +80,7 @@ export default function Home() {
       </main>
 
       <footer>
-        <a>Email hello@foundly.app to get in touch</a>
+          <a>Email hello@foundly.app to get in touch</a>
       </footer>
 
     </Layout>
