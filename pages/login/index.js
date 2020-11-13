@@ -1,40 +1,68 @@
-// pages/login/index.js
-import { useRouter } from 'next/router'
+import { useState } from 'react'
+import Router from 'next/router'
+import { useUser } from '../../lib/hooks'
+import Layout from '../../components/layout'
+import Form from '../../components/form'
+
 import { Magic } from 'magic-sdk'
 
-export default function Login() {
-  const router = useRouter()
-  const handleSubmit = async (event) => {
-    event.preventDefault()
-  
-    const { elements } = event.target
-  
-    // the Magic code
-    const did = await new Magic(process.env.NEXT_PUBLIC_MAGIC_PUB_KEY)
-      .auth
-      .loginWithMagicLink({ email: elements.email.value })
-  
-    // Once we have the token from magic,
-    // update our own database
-    const authRequest = await fetch('/api/login', {
-      method: 'POST',
-      headers: {Authorization: 'Bearer ${did}'}
-    })
-  
-    if (authRequest.ok) {
-      // We successfully logged in, our API
-      // set authorization cookies and now we
-      // can redirect to the dashboard!
-      router.push('/dashboard')
+const Login = () => {
+  useUser({ redirectTo: '/dashboard', redirectIfFound: true })
 
-    } else { /* handle errors */ }
+  const [errorMsg, setErrorMsg] = useState('')
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+
+    if (errorMsg) setErrorMsg('')
+
+    const body = {
+      email: e.currentTarget.email.value,
+    }
+
+    try {
+      const magic = new Magic(process.env.NEXT_PUBLIC_MAGIC_PUBLISHABLE_KEY)
+      const didToken = await magic.auth.loginWithMagicLink({
+        email: body.email,
+      })
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + didToken,
+        },
+        body: JSON.stringify(body),
+      })
+      if (res.status === 200) {
+        Router.push('/dashboard')
+      } else {
+        throw new Error(await res.text())
+      }
+    } catch (error) {
+      console.error('An unexpected error happened occurred:', error)
+      setErrorMsg(error.message)
+    }
   }
 
+  
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor='email'>Email</label>
-      <input name='email' type='email' />
-      <button>Log in</button>
-    </form>
+    <Layout>
+      <div className="login">
+        <Form errorMessage={errorMsg} onSubmit={handleSubmit} />
+      </div>
+      <style jsx>{`
+        .login {
+          background-color: white;
+          max-width: 21rem;
+          margin: 10rem auto;
+          padding: 1rem;
+          border: 8px solid;
+          border-image-slice: 1;
+          border-image-source: linear-gradient(to top, #94C6EA, #D84339);
+        }
+      `}</style>
+    </Layout>
   )
 }
+
+export default Login

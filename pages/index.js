@@ -1,13 +1,15 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { useUser } from '../lib/hooks'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
-
 import { Button, Card, Navbar } from 'react-bootstrap'
 import Typist from 'react-typist'
 
 
 export default function Home() {
+  const user = useUser()
+
   return (
     <Layout>
       <Head>
@@ -30,9 +32,18 @@ export default function Home() {
                   />
                 </Navbar.Brand>
             </Link>
-            <div className="mr-sm-2">
-              <Button className="login-btn" component="{Link}" href="/login" variant="outline">Login</Button>
-            </div>
+            {user && (
+              <div className="mr-sm-2">
+                <p>Welcome, {user.email}</p>
+                <Button className="login-btn" component="{Link}" href="/api/logout" variant="outline">Sign out</Button>
+              </div>
+            )}
+            {!user && (
+              <div className="mr-sm-2">
+                <Button className="login-btn" component="{Link}" href="/login" variant="outline">Login</Button>
+              </div>
+            )}
+
           </Navbar> 
         </div>
 
@@ -48,10 +59,23 @@ export default function Home() {
                 </h2>
                 <p className="hero-subtitle">Foundly turns creators and influencers into companies with absolute ease. Writing off expensive purchases will save you thousands. And you won't be personally liable for your debts! No paperwork, no headaches.</p>
                 <br/>
-                <h5 className="hero-subtitle">Ready to get that company?🚀</h5>
-                <Button className="hero-btn" component="{Link}" href="/dashboard" variant="outline-primary" >
-                  Start Here
-                </Button>
+                {!user && (
+                  <>
+                    <h5 className="hero-subtitle">Ready to get that company?🚀</h5>
+                    <Button className="hero-btn" component="{Link}" href="/login" variant="outline-primary" >
+                      Start Here
+                    </Button>
+                  </>
+                )}
+                {user && (
+                  <>
+                    <h5 className="hero-subtitle">Let's finish that application 💯</h5>
+                    <Button className="hero-btn" component="{Link}" href="/dashboard" variant="outline-primary" >
+                      Continue Application
+                    </Button>
+                  </>
+                )}
+                
               </div>
               <div className="hero-photo">
                 <img src="/images/hero.png"/>

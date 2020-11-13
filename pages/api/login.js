@@ -1,18 +1,17 @@
-// pages/api/login.js
-import { Magic } from '@magic-sdk/admin'
-import Iron from '@hapi/iron'
-import CookieService from '../../lib/cookie'
+import { magic } from '../../lib/magic'
+import { encryptSession } from '../../lib/iron'
+import { setTokenCookie } from '../../lib/auth-cookies'
 
-export default async (req, res) => {
-    if (req.method !== 'POST') return res.status(405).end()
-
-    // exchage DID from Magic for user data
-    const did = req.headers.authorization.split('Bearer').pop().trim()
-    const user = await new Magic(process.env.MAGIC_SECRET_KEY).users.getMetadataByToken(did)
-
-    // author cookies to persist user session
-    const token = await Iron.seal(user, process.env.ENCRYPTION_SECRET, Iron.defaults)
-    CookieService.setTokenCookie(res, token)
-
-    res.end()
+export default async function login(req, res) {
+  try {
+    const didToken = req.headers.authorization.substr(7)
+    const metadata = await magic.users.getMetadataByToken(didToken)
+    const session = { ...metadata }
+    // The token is a string with the encrypted session
+    const token = await encryptSession(session)
+    setTokenCookie(res, token)
+    res.status(200).send({ done: true })
+  } catch (error) {
+    res.status(error.status || 500).end(error.message)
+  }
 }
