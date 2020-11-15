@@ -37,6 +37,12 @@ export default function About() {
         <br/>
         <textarea placeholder="Tiktok: @yourcoolname" name="relevant handles" ref={register} />
         </label> 
+        <br/>
+        <label>
+        Phone #
+        <br/>
+        <input type="text" placeholder="###-###-####" name="phone" ref={register} />
+        </label>
       </form>
     </>
   );

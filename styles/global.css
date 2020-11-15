@@ -86,7 +86,7 @@ body {
   padding: 3rem 0;
   border-bottom: 3px solid;
   border-image-slice: 1;
-  border-image-source: linear-gradient(to left, #ffc9b3, #D84339);
+  border-image-source: linear-gradient(to left, #ffc9b333, #d8443946);
 }
 .hero {
   display: flex;

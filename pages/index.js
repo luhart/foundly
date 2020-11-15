@@ -84,7 +84,7 @@ export default function Home() {
           </div>
         </section>
         <div className="middle">
-          <div className="middle-container-title"><h4 className="middle-title">If you are an influencer or content creator,<br/>it's in your best interest to become a company.</h4></div>
+          <div className="middle-container-title"><h4 className="middle-title">If you're an influencer or content creator,<br/>it's in your best interest to become a company.</h4></div>
           <div className="middle-container">
             <div className="blurb">
                 <h3>Save money by deducting:</h3>
@@ -100,7 +100,6 @@ export default function Home() {
               <ul id="none">
                 <li><h5>🏦 Debts</h5></li>
                 <li><h5>🗣️ Claims</h5></li>
-                <li><h5>🕴️ Other people</h5></li>
                 <li><h5>💥 Business-related actions</h5></li>
               </ul>
             </div>
