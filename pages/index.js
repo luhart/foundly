@@ -52,13 +52,12 @@ export default function Home() {
           <div className="container">
             <div className="hero">
               <div className="hero-body half">
-                <h2 className="hero-title">
+                <h1 className="hero-title">
                 <Typist cursor={{ hideWhenDone: true }}>
                   Become your own <br/>company.
                 </Typist>
-                </h2>
+                </h1>
                 <p className="hero-subtitle">Foundly turns creators and influencers into companies with absolute ease. Writing off expensive purchases will save you thousands. And you won't be personally liable for your debts! No paperwork, no headaches.</p>
-                <br/>
                 {!user && (
                   <>
                     <h5 className="hero-subtitle">Ready to get that company?🚀</h5>
@@ -78,37 +77,40 @@ export default function Home() {
                 
               </div>
               <div className="hero-photo">
-                <img src="/images/hero.png"/>
+                <img src="/images/hero2.png"/>
               </div>
             </div>
           </div>
         </section>
-        <div className="middle">
-          <div className="middle-container-title"><h4 className="middle-title">If you're an influencer or content creator,<br/>it's in your best interest to become a company.</h4></div>
-          <div className="middle-container">
-            <div className="blurb">
-                <h3>Save money by deducting:</h3>
+        <div className="mcontainer">
+          <div className="middle">
+            <div className="middle-container-title"><h4 className="middle-title">If you're an influencer or content creator,<br/>it's in your best interest to become a company.</h4></div>
+            <div className="middle-container">
+              <div className="blurb">
+                  <h3>Deduct and $ave.</h3>
+                  <ul id="none">
+                    <li><h5>✈️ Travel</h5></li>
+                    <li><h5>🍜 Food</h5></li>
+                    <li><h5>📷 Equipment</h5></li>
+                    <li><h5>🏠 Rent</h5></li>
+                  </ul>
+              </div>
+              <div className="blurb">
+                <h3>Ditch personal liability.</h3>
                 <ul id="none">
-                  <li><h5>✈️ Travel</h5></li>
-                  <li><h5>🍜 Food</h5></li>
-                  <li><h5>📷 Equipment</h5></li>
-                  <li><h5>🏠 Rent</h5></li>
+                  <li><h5>🏦 Debts</h5></li>
+                  <li><h5>🗣️ Claims</h5></li>
+                  <li><h5>💥 Business-related actions</h5></li>
                 </ul>
-            </div>
-            <div className="blurb">
-              <h3>Don't be personally liable for:</h3>
-              <ul id="none">
-                <li><h5>🏦 Debts</h5></li>
-                <li><h5>🗣️ Claims</h5></li>
-                <li><h5>💥 Business-related actions</h5></li>
-              </ul>
+              </div>
             </div>
           </div>
         </div>
+
       </main>
 
       <footer>
-          <a>Say hi, ✉️ hello@foundly.app</a>
+          <a href="mailto:hello@foundly.app">Say hi ✉️ </a>
       </footer>
 
     </Layout>
