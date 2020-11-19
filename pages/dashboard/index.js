@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import {useState} from 'react'
+import { useState } from 'react'
 import {Navbar, Button, Tab, Row, Col, Nav} from 'react-bootstrap'
 
 import { useUser } from '../../lib/hooks'
@@ -12,7 +12,7 @@ import Company from './company'
 import Finish from './finish'
 
 export default function Dashboard() {
-
+  const [active, setActive] = useState("about")
   const user = useUser({ redirectTo: '/login'})
 
   return (
@@ -36,10 +36,10 @@ export default function Dashboard() {
         </Navbar> 
       </div>
       <main className={styles.container}>
-        <Tab.Container id="sidebar" defaultActiveKey="about">
+        <Tab.Container id="sidebar" activeKey={active} onSelect={(k) => setActive(k)} defaultActiveKey={active}>
           <Row>
             <Col sm={3}>
-              <Nav variant="pills" className="flex-column">
+              <Nav className={styles.nav + " flex-column"} >
                 <Nav.Item>
                   <Nav.Link eventKey="about" className={styles.navlink}>About You</Nav.Link>
                 </Nav.Item>
@@ -55,9 +55,11 @@ export default function Dashboard() {
               <Tab.Content>
                 <Tab.Pane eventKey="about">
                   <About />
+                  <Button variant="outline" className={styles.nextBtn} onClick={() => setActive("company")}>Next</Button>
                 </Tab.Pane>
                 <Tab.Pane eventKey="company">
                   <Company />
+                  <Button variant="outline" className={styles.nextBtn} onClick={() => setActive("finish")}>Next</Button>
                 </Tab.Pane>
                 <Tab.Pane eventKey="finish">
                   <Finish />

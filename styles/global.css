@@ -179,7 +179,7 @@ body {
 .middle-container {
   display: flex;
   flex-direction: row ;
-  justify-content: start;
+  justify-content: flex-start;
   margin: 0 auto;
   max-width: 850px;
   position: relative;
