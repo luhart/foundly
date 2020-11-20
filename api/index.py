@@ -1,4 +1,3 @@
-import json
 import os
 import stripe
 stripe.api_key = "sk_test_51HcLslH4nuoimhurKXa5lHDzKCTV0V5IHUDjeVIegZB2qBNAeUXQpdA9GxV7KRzRcaicbRg9ywZhBugZDI8lodtN00v88WXkKB"
