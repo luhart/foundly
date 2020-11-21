@@ -17,19 +17,18 @@ export default function CheckoutForm() {
   const elements = useElements()
 
   useEffect(() => {
-    // create PaymentIntent as soon as the page loads
+    // Create PaymentIntent as soon as the page loads
     window
       .fetch("/api/create-payment-intent", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({items: [{ id: "company"}]}),
-        mode: "no-cors"
+        body: JSON.stringify({items: [{ id: "xl-tshirt" }]})
       })
       .then(res => {
         console.log(res)
-        return res
+        return res.json()
       })
       .then(data => {
         setClientSecret(data.clientSecret)
@@ -63,15 +62,16 @@ export default function CheckoutForm() {
 
   const handleSubmit = async ev => {
     ev.preventDefault()
-    setProcessing(true);
+    setProcessing(true)
 
     const payload = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: elements.getElement(CardElement)
       }
     })
+
     if (payload.error) {
-      setError(`Payment failed ${payload.error.message}`)
+      setError(`Payment failed ${payload.error.message}`);
       setProcessing(false)
     } else {
       setError(null)
