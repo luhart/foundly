@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   CardElement,
   useStripe,
@@ -27,13 +27,12 @@ export default function CheckoutForm() {
         body: JSON.stringify({items: [{ id: "xl-tshirt" }]})
       })
       .then(res => {
-        console.log(res)
-        return res.json()
+        return res.json();
       })
       .then(data => {
-        setClientSecret(data.clientSecret)
-      })
-  }, [])
+        setClientSecret(data.clientSecret);
+      });
+  }, []);
 
   const cardStyle = {
     style: {
