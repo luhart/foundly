@@ -2,8 +2,6 @@
   "name": "foundly",
   "version": "0.0.0",
   "private": true,
-  "proxy": "http://localhost:4242",
-  "homepage": "http://localhost:3000",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -25,6 +23,7 @@
     "react-dom": "16.13.1",
     "react-hook-form": "^6.11.0",
     "react-typist": "^2.0.5",
+    "stripe": "^8.125.0",
     "styled-jsx": "^3.3.2",
     "swr": "^0.3.8"
   }

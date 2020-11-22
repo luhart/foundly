@@ -19,7 +19,7 @@ export default function CheckoutForm() {
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     window
-      .fetch("/api/create-payment-intent", {
+      .fetch("/api/payment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -91,7 +91,7 @@ export default function CheckoutForm() {
           {processing ? (
             <div className={styles.spinner} id="spinner"></div>
           ) : (
-            "Pay"
+            "Pay $499"
           )}
         </span>
       </button>
